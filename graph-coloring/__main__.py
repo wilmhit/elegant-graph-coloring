@@ -1,7 +1,8 @@
 import argparse
+from argparse import Namespace
 from file_operations import get_graph_file, save_png
 
-def main(args):
+def main(args: Namespace):
     graph_file = get_graph_file(args.GRAPH)
     output = process_graph(graph_file)
     save_png(output, args.out)
