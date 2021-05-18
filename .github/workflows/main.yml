@@ -25,8 +25,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-      - name: Install dependecies
-        uses: VaultVulp/action-pipenv@v2.0.1
+      - uses: jpetrucciani/mypy-check@master
         with:
-          command: install -d
-      - run: pipenv run mypy --ignore-missing-imports --pretty --strict graph-coloring/*.py
+          path: 'graph-coloring'
