@@ -1,6 +1,4 @@
-from typing import TypeVar
-
-Graph = TypeVar("Graph", list[list[int]])
+from types import Graph
 
 
 def parse_graph_file(graph_file: str) -> Graph:
@@ -26,7 +24,7 @@ def split_spaces(line: str) -> list[str]:
 
 
 def remove_empty_cells(cells: list[str]) -> list[str]:
-    return filter(lambda cell: cell != "", cells)
+    return list(filter(lambda cell: cell != "", cells))
 
 
 def parse_into_numbers(cells: list[str]) -> list[int]:

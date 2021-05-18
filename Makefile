@@ -1,2 +1,2 @@
 typecheck:
-	mypy --ignore-missing-imports --pretty --strict graph-coloring/*.pm
+	mypy --ignore-missing-imports --pretty --strict graph-coloring/*.py
