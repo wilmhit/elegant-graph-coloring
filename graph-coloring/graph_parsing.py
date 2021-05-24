@@ -1,31 +1,12 @@
-from types import Graph
+from customtypes import Graph
 
 
-def parse_graph_file(graph_file: str) -> Graph:
-    """
-    Parses string into graph. String must be separated with spaces and \n
-    """
-
-    graph = []
-    lines = split_lines(graph_file)
-    for line in lines:
-        cells = split_spaces(line)
-        cells = remove_empty_cells(cells)
-        graph.append(parse_into_numbers(cells))
-    return graph
+def graph_from_string(graph_file: str) -> Graph:
+    """String must be separated with spaces and \n"""
+    return [to_cells(line_str) for line_str in graph_file.split("\n")]
 
 
-def split_lines(graph_file: str) -> list[str]:
-    return graph_file.split("\n")
-
-
-def split_spaces(line: str) -> list[str]:
-    return line.split(" ")
-
-
-def remove_empty_cells(cells: list[str]) -> list[str]:
-    return list(filter(lambda cell: cell != "", cells))
-
-
-def parse_into_numbers(cells: list[str]) -> list[int]:
+def to_cells(line: str) -> list[int]:
+    cells = line.split(" ")
+    cells = list(filter(lambda cell: cell != "", cells))
     return [int(cell) for cell in cells]

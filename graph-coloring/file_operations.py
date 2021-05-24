@@ -1,4 +1,4 @@
-from types import Idk
+from customtypes import Idk
 
 def get_graph_file(filename: str) -> str:
     return "" # TODO

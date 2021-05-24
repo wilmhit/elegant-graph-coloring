@@ -8,6 +8,7 @@ name = "pypi"
 [dev-packages]
 yapf = "*"
 mypy = "*"
+rope = "*"
 
 [requires]
 python_version = "3.9"

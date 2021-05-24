@@ -1,13 +1,13 @@
 import argparse
 from argparse import Namespace
 from file_operations import get_graph_file, save_png
-from graph_parsing import parse_graph_file
-from types import Graph, Idk
+from graph_parsing import graph_from_string
+from custom_types import Graph, Idk
 
 
 def main(args: Namespace) -> None:
-    graph_file = get_graph_file(args.GRAPH)
-    graph = parse_graph_file(graph_file)
+    graph_str = get_graph_file(args.GRAPH)
+    graph = graph_from_string(graph_str)
     output = process_graph(graph)
     save_png(output, args.out)
 
