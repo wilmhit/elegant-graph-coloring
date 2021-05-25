@@ -1,4 +1,5 @@
 import argparse
+from sys import exit
 from argparse import Namespace
 from file_operations import get_graph_file
 from graph_parsing import graph_from_string
@@ -14,8 +15,7 @@ def main(args: Namespace) -> None:
 
     error = get_error(graph)
     if error:
-        print(error)
-        return
+        exit(error)
 
     results: Idk = process_graph(graph)
     output_results(results)
