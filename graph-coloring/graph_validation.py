@@ -4,7 +4,7 @@ from custom_types import Graph
 def get_error(graph: Graph) -> Optional[str]:
     """Retruns user-friendly error message or None"""
     if not is_square(graph):
-        return "This graph has errors!"
+        return "This graph has not square"
     if not has_zeros_on_diagonal(graph):
         return "Diagonal must consist only of zeros"
     return None
