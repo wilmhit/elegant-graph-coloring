@@ -1,0 +1,20 @@
+name: check types - mypy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: wilmhit/mypy-check-latest@master
+        with:
+          path: 'graph-coloring'
