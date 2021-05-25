@@ -1,8 +1,14 @@
-from customtypes import Graph
+from custom_types import Graph
 
 
 def graph_from_string(graph_file: str) -> Graph:
-    """String must be separated with spaces and \n"""
+    """
+        The string should represent an adjacency matrix, separated with spaces and "\n",
+        ```
+        0 1 \n
+        1 0 \n
+        ```
+    """
     return [to_cells(line_str) for line_str in graph_file.split("\n")]
 
 
