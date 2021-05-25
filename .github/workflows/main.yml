@@ -15,6 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-      - uses: jpetrucciani/mypy-check@master
+      - uses: wilmhit/mypy-check-latest
         with:
           path: 'graph-coloring'
