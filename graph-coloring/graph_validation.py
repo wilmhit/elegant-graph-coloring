@@ -1,23 +1,18 @@
 from typing import Optional
 from custom_types import Graph
 
-def get_error(graph: Graph) -> Optional[str]:
-    """Retruns user-friendly error message or None"""
+def get_error_if_not_valid(graph: Graph) -> Optional[str]:
+    """Error messages are descriptive and user-friendly."""
+
     if not is_square(graph):
-        return "This graph has not square"
+        return "This graph is not square"
     if not has_zeros_on_diagonal(graph):
-        return "Diagonal must consist only of zeros"
+        return "Provided graph should only have zeros on its diagonal"
     return None
 
 def is_square(graph: Graph) -> bool:
     side_lenght = len(graph)
-    for line in graph:
-        if len(line) != side_lenght:
-            return False
-    return True
+    return all(len(row) == side_lenght for row in graph)
 
 def has_zeros_on_diagonal(graph: Graph) -> bool:
-    for x in range(len(graph)):
-        if graph[x][x] != 0:
-            return False
-    return True
+    return all(graph[x][x] == 0 for x in range(len(graph)))
