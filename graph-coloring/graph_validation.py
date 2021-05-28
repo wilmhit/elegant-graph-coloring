@@ -1,13 +1,13 @@
 from typing import Optional
 from custom_types import Graph
 
-def get_error_if_not_valid(graph: Graph) -> Optional[str]:
+def get_error_if_invalid(graph: Graph) -> Optional[str]:
     """Error messages are descriptive and user-friendly."""
 
     if not is_square(graph):
-        return "This graph is not square"
+        return "The provided graph is not square"
     if not has_zeros_on_diagonal(graph):
-        return "Provided graph should only have zeros on its diagonal"
+        return "The provided graph should only have zeros on its diagonal"
     return None
 
 def is_square(graph: Graph) -> bool:
