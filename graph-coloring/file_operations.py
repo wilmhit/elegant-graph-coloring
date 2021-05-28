@@ -1,8 +1,11 @@
-from customtypes import Idk
+from custom_types import Idk
+from os import stat
 
-def get_graph_file(filename: str) -> str:
-    return "" # TODO
+MAX_FILE_SIZE = 1024 * 1024 * 1024 # 1mb
 
+def get_graph_string(filename: str) -> str:
+    err_msg = "The provided file is too big"
+    assert stat(filename).st_size < MAX_FILE_SIZE, err_msg
 
-def save_png(file: Idk, filename: str) -> None:
-    pass # TODO
+    with open(filename, "r") as file:
+        return file.read()

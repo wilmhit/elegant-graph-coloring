@@ -1,3 +1,3 @@
 
 Graph = list[list[int]]
-Idk = list[int] # TODO
+Idk = Graph # TODO output of minizinc_script.process_graph

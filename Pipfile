@@ -9,6 +9,7 @@ name = "pypi"
 yapf = "*"
 mypy = "*"
 rope = "*"
+isort = "*"
 
 [requires]
 python_version = "3.9"
