@@ -1,7 +1,7 @@
-from custom_types import Graph
+from .custom_types import AdjMatrix
 
 
-def graph_from_string(graph_str: str) -> Graph:
+def graph_from_string(graph_str: str) -> AdjMatrix:
     """
     The string should represent an adjacency matrix, separated with spaces and \\n.
 

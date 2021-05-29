@@ -10,6 +10,12 @@ yapf = "*"
 mypy = "*"
 rope = "*"
 isort = "*"
+pytest = "*"
+minizinc = "*"
+black = "*"
 
 [requires]
 python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true
