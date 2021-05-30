@@ -1,6 +1,7 @@
 from .custom_types import AdjMatrix
 from .config import BASE_DIR
 from minizinc import Instance, Model, Solver, Status
+from typing import cast
 
 
 def elegantly_color_edges(graph: AdjMatrix) -> AdjMatrix:
@@ -13,6 +14,6 @@ def elegantly_color_edges(graph: AdjMatrix) -> AdjMatrix:
     instance["total_vertices"] = len(graph)
     result = instance.solve()
     if (status := result.status) != Status.SATISFIED:
-        error_message = f"An error occured when coloring the graph. Returned status: {status}"
-        raise RuntimeError(error_message)
-    return result["coloring"]  # type: AdjMatrix
+        error = f"An error occured when coloring the graph. Returned status: {status}"
+        raise RuntimeError(error)
+    return cast(AdjMatrix, result["coloring"])
