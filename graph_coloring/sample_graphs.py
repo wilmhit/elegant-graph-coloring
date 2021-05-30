@@ -1,7 +1,7 @@
 # Sample graphs translated to adjacency amtrices taken from:
 # https://www.researchgate.net/publication/342331244_Elegant_labeling_of_some_graphs
 
-SHAK_F_4 = {
+SHACK_F_4 = {
     "graph": [
         [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
         [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
