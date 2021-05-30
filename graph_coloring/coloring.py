@@ -1,11 +1,11 @@
 from .custom_types import AdjMatrix
-from pathlib import Path
+from .config import BASE_DIR
 from minizinc import Instance, Model, Solver, Status
 
 
-def get_colored_edges(graph: AdjMatrix) -> AdjMatrix:
+def elegantly_color_edges(graph: AdjMatrix) -> AdjMatrix:
     """Return an adjacency matrix represnting elegantly colored edges."""
-    model_path = Path(__file__).parent.absolute().joinpath("models/elegant_labeling.mzn")
+    model_path = BASE_DIR.joinpath("models/elegant_labeling.mzn")
     model = Model(model_path)
     instance = Instance(Solver.lookup("gecode"), model)
     instance["graph"] = graph

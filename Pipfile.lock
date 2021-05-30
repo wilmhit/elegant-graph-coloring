@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c7fe6d9b586d0cf72ea33a4218aad926dbbeef5473648a6a4d235ef244d55172"
+            "sha256": "3a6a7ec2268cb8fa72ce338d8237f1236d0befe1a866c7a3bc7be7826a608d92"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -15,7 +15,16 @@
             }
         ]
     },
-    "default": {},
+    "default": {
+        "minizinc": {
+            "hashes": [
+                "sha256:c0e5fae557df0b757bbe4dbec70f7b033b2acc0acabea213e3bbcb0b41d8efeb",
+                "sha256:d4327468b7cdc1b1379c6fa50350393d2d0903ac1be55235f534992b4f7b2538"
+            ],
+            "index": "pypi",
+            "version": "==0.4.2"
+        }
+    },
     "develop": {
         "appdirs": {
             "hashes": [
@@ -62,14 +71,6 @@
             ],
             "index": "pypi",
             "version": "==5.8.0"
-        },
-        "minizinc": {
-            "hashes": [
-                "sha256:c0e5fae557df0b757bbe4dbec70f7b033b2acc0acabea213e3bbcb0b41d8efeb",
-                "sha256:d4327468b7cdc1b1379c6fa50350393d2d0903ac1be55235f534992b4f7b2538"
-            ],
-            "index": "pypi",
-            "version": "==0.4.2"
         },
         "mypy": {
             "hashes": [

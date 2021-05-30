@@ -1,4 +1,5 @@
 from .custom_types import AdjMatrix
+from typing import List
 
 
 def graph_from_string(graph_str: str) -> AdjMatrix:
@@ -12,7 +13,7 @@ def graph_from_string(graph_str: str) -> AdjMatrix:
     return [to_cells(line_str) for line_str in graph_str.split("\n")]
 
 
-def to_cells(line: str) -> list[int]:
+def to_cells(line: str) -> List[int]:
     cells = line.split(" ")
     cells = list(filter(lambda cell: cell != "", cells))
     return [int(cell) for cell in cells]

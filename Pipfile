@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+minizinc = "*"
 
 [dev-packages]
 yapf = "*"
@@ -11,7 +12,6 @@ mypy = "*"
 rope = "*"
 isort = "*"
 pytest = "*"
-minizinc = "*"
 black = "*"
 
 [requires]
