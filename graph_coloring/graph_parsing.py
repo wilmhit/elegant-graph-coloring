@@ -1,7 +1,8 @@
-from custom_types import Graph
+from .custom_types import AdjMatrix
+from typing import List
 
 
-def graph_from_string(graph_str: str) -> Graph:
+def graph_from_string(graph_str: str) -> AdjMatrix:
     """
     The string should represent an adjacency matrix, separated with spaces and \\n.
 
@@ -12,7 +13,7 @@ def graph_from_string(graph_str: str) -> Graph:
     return [to_cells(line_str) for line_str in graph_str.split("\n")]
 
 
-def to_cells(line: str) -> list[int]:
+def to_cells(line: str) -> List[int]:
     cells = line.split(" ")
     cells = list(filter(lambda cell: cell != "", cells))
     return [int(cell) for cell in cells]
