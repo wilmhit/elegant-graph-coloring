@@ -1,7 +1,9 @@
+from typing import cast
+
+from minizinc import Instance, Model, Solver, Status
+
 from .custom_types import AdjMatrix
 from .config import BASE_DIR
-from minizinc import Instance, Model, Solver, Status
-from typing import cast
 
 
 def elegantly_color_edges(graph: AdjMatrix) -> AdjMatrix:
