@@ -5,6 +5,7 @@ from typing import List, Any, Tuple, Dict
 
 Edge = Tuple[int, int]
 
+
 def get_node_array(graph: AdjMatrix) -> List[int]:
     return [x for x in range(len(graph))]
 
@@ -13,7 +14,7 @@ def get_edges_and_labels(graph: AdjMatrix) -> Tuple[List[Edge], Dict[Edge, int]]
     edges: List[Edge] = []
     labels: Dict[Edge, int] = {}
     for row_num, row in enumerate(graph):
-        for column_num, element  in enumerate(row):
+        for column_num, element in enumerate(row):
             if column_num < row_num:
                 continue
             if element:
@@ -36,8 +37,6 @@ def output_results(results: AdjMatrix) -> None:
     networkx.draw_networkx_nodes(graph, layout)
     networkx.draw_networkx_edges(graph, layout)
     networkx.draw_networkx_labels(graph, layout)
-    networkx.draw_networkx_edge_labels(graph,
-                                       layout,
-                                       edge_labels=labels)
-    pyplot.tight_layout() # Removes huge margins
+    networkx.draw_networkx_edge_labels(graph, layout, edge_labels=labels)
+    pyplot.tight_layout()  # Removes huge margins
     pyplot.show()
