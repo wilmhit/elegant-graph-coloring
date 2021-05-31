@@ -38,5 +38,5 @@ def output_results(results: AdjMatrix) -> None:
     networkx.draw_networkx_edges(graph, layout)
     networkx.draw_networkx_labels(graph, layout)
     networkx.draw_networkx_edge_labels(graph, layout, edge_labels=labels)
-    pyplot.tight_layout()  # Removes huge margins
+    pyplot.tight_layout(pad=0)
     pyplot.show()
