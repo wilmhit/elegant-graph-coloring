@@ -6,12 +6,18 @@ name = "pypi"
 [packages]
 networkx = "*"
 matplotlib = "*"
+minizinc = "*"
 
 [dev-packages]
 yapf = "*"
 mypy = "*"
 rope = "*"
 isort = "*"
+pytest = "*"
+black = "*"
 
 [requires]
 python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true

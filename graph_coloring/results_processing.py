@@ -1,4 +1,4 @@
-from custom_types import Graph as AdjMatrix
+from custom_types import AdjMatrix
 import networkx
 from matplotlib import pyplot
 
