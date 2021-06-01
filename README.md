@@ -2,7 +2,7 @@
 
 ## Running
 
-Install python then:
+Install python and then do:
 ```
 $ git clone https://github.com/wilmhit/elegant-graph-coloring.git
 $ cd elegant-graph-coloring
