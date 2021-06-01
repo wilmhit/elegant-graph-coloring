@@ -1,5 +1,10 @@
 # Elegant graph coloring (labeling).
 
+*An elegant labeling f of a graph G with m edges is an injective function from the
+vertices of G to the set {0, 1, 2, . . . , m} such that when each edge x y is assigned the
+label f(x) + f(y)(mod m + 1), the resulting edge labels are distinct and nonzero.*
+
+A. Elumalai and G. Sethuraman "Elegant Labeled Graphs"
 ## Running
 
 Install python and then do:
