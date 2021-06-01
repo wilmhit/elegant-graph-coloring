@@ -2,7 +2,7 @@ import pytest
 
 from graph_coloring.custom_types import AdjMatrix
 from graph_coloring.coloring import elegantly_color_edges
-from graph_coloring.sample_graphs import SHACK_F_4, DI_3, STAR_S_6
+from .sample_graphs import SHACK_F_4, DI_3, STAR_S_6
 
 
 @pytest.mark.parametrize(
