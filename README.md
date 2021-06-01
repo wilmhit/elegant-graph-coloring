@@ -11,9 +11,13 @@ $ chmod +x run.sh
 $ ./run.sh <Input graph file>
 ```
 
+## Examples
+
+Few sample graphs are located in `graphs` dir.
+
 ## Contributing
 
-Open pull request
+Open pull request.
 
 ## Based on
 
