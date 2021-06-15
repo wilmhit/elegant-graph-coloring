@@ -1,4 +1,4 @@
-from typing import cast
+from typing import cast, Tuple, List
 
 from minizinc import Instance, Model, Solver, Status
 
@@ -6,7 +6,7 @@ from .custom_types import AdjMatrix
 from .config import BASE_DIR
 
 
-def elegantly_color_edges(graph: AdjMatrix) -> AdjMatrix:
+def elegantly_color(graph: AdjMatrix) -> Tuple[AdjMatrix, List[int]]:
     """Return an adjacency matrix represnting elegantly colored edges."""
     model_path = BASE_DIR.joinpath("models/elegant_labeling.mzn")
     model = Model(model_path)
@@ -18,4 +18,4 @@ def elegantly_color_edges(graph: AdjMatrix) -> AdjMatrix:
     if (status := result.status) != Status.SATISFIED:
         error = f"An error occured when coloring the graph. Returned status: {status}"
         raise RuntimeError(error)
-    return cast(AdjMatrix, result["coloring"])
+    return cast(AdjMatrix, result["colored_edges"]), result["colored_vertices"]

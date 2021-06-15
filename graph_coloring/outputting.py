@@ -1,13 +1,11 @@
-from .custom_types import AdjMatrix
-import networkx
-from matplotlib import pyplot
 from typing import List, Any, Tuple, Dict
 
+import networkx
+from matplotlib import pyplot
+
+from .custom_types import AdjMatrix
+
 Edge = Tuple[int, int]
-
-
-def get_node_array(graph: AdjMatrix) -> List[int]:
-    return [x for x in range(len(graph))]
 
 
 def get_edges_and_labels(graph: AdjMatrix) -> Tuple[List[Edge], Dict[Edge, int]]:
@@ -25,12 +23,10 @@ def get_edges_and_labels(graph: AdjMatrix) -> Tuple[List[Edge], Dict[Edge, int]]
     return edges, labels
 
 
-def output_results(results: AdjMatrix) -> None:
-    edges, labels = get_edges_and_labels(results)
-    nodes = get_node_array(results)
-
+def output_results(colored_edges: AdjMatrix, colored_vertices: List[int]) -> None:
+    edges, labels = get_edges_and_labels(colored_edges)
     graph = networkx.Graph()
-    graph.add_nodes_from(nodes)
+    graph.add_nodes_from(colored_vertices)
     graph.add_edges_from(edges)
     layout = networkx.spring_layout(graph)
 

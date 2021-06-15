@@ -1,7 +1,7 @@
 import pytest
 
 from graph_coloring.custom_types import AdjMatrix
-from graph_coloring.coloring import elegantly_color_edges
+from graph_coloring.coloring import elegantly_color
 from .sample_graphs import SHACK_F_4, DI_3, STAR_S_6
 
 
@@ -49,7 +49,7 @@ from .sample_graphs import SHACK_F_4, DI_3, STAR_S_6
     ],
 )
 def test_graph_colored_correctly(graph: AdjMatrix, expected_coloring: AdjMatrix):
-    assert elegantly_color_edges(graph) == expected_coloring
+    assert elegantly_color(graph)[0] == expected_coloring
 
 
 @pytest.mark.parametrize(
@@ -65,4 +65,4 @@ def test_graph_colored_correctly(graph: AdjMatrix, expected_coloring: AdjMatrix)
 )
 def test_error_raised_when_graph_could_not_be_solved(non_colorable_graph: AdjMatrix):
     with pytest.raises(RuntimeError):
-        elegantly_color_edges(non_colorable_graph)
+        elegantly_color(non_colorable_graph)

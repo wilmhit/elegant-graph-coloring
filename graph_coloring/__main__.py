@@ -1,11 +1,12 @@
 import argparse
 from sys import exit
 from argparse import Namespace
+
 from .file_operations import get_graph_string
 from .graph_parsing import graph_from_string
-from .coloring import elegantly_color_edges
+from .coloring import elegantly_color
 from .graph_validation import get_error_if_invalid
-from .results_processing import output_results
+from .outputting import output_results
 
 
 def main(args: Namespace) -> None:
@@ -15,8 +16,7 @@ def main(args: Namespace) -> None:
     if error := get_error_if_invalid(graph):
         exit(error)
 
-    results = elegantly_color_edges(graph)
-    output_results(results)
+    output_results(*elegantly_color(graph))
 
 
 parser = argparse.ArgumentParser()
