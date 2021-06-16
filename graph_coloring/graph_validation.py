@@ -10,7 +10,7 @@ def get_error_if_invalid(graph: AdjMatrix) -> Optional[str]:
     if not has_zeros_on_diagonal(graph):
         return "The provided graph should only have zeros on its diagonal"
     if not edges_greater_equal_vertices(graph):
-        return "..."
+        return "Graph must have more edges than vertices"
 
 def is_square(graph: AdjMatrix) -> bool:
     side_lenght = len(graph)
