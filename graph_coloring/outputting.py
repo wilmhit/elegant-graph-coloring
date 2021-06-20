@@ -1,4 +1,4 @@
-from typing import List, Any, Tuple, Dict
+from typing import List, Tuple, Dict
 
 import networkx
 from matplotlib import pyplot
