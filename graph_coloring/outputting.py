@@ -13,14 +13,12 @@ Edge = Tuple[int, int]
 def get_edges_and_labels(graph: AdjMatrix, vertex_labels: List[int]) -> Tuple[List[Edge], Dict[Edge, int]]:
     edges: Set[Edge] = set()
     labels: Dict[Edge, int] = {}
-    indexes_to_vertex_labels = lambda i1, i2: (vertex_labels[i1],
-                                               vertex_labels[i2])
     for from_ver_num, row in enumerate(graph):
         for to_ver_num, edge_value in enumerate(row):
             if edge_value:
                 lower_vertex = min(from_ver_num,to_ver_num)
                 higer_vertex = max(from_ver_num, to_ver_num)
-                edge = indexes_to_vertex_labels(lower_vertex, higer_vertex)
+                edge = vertex_labels[lower_vertex], vertex_labels[higer_vertex]
                 edges.add(edge)
                 labels[edge] = edge_value
     return list(edges), labels
