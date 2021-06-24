@@ -1,27 +1,29 @@
-from typing import List, Tuple, Dict, Set
+from typing import Dict, List, Set, Tuple
 
 import networkx
-from json import dumps
 from matplotlib import pyplot
 
 from .custom_types import AdjMatrix
-from .graph_utils import pretty_print_graph
+from .graph_utils import enumerate_half_graph
 
 Edge = Tuple[int, int]
+EdgeLabels = Dict[Edge, int]
 
 
-def get_edges_and_labels(graph: AdjMatrix, vertex_labels: List[int]) -> Tuple[List[Edge], Dict[Edge, int]]:
-    edges: Set[Edge] = set()
-    labels: Dict[Edge, int] = {}
-    for from_ver_num, row in enumerate(graph):
-        for to_ver_num, edge_value in enumerate(row):
-            if edge_value:
-                lower_vertex = min(from_ver_num,to_ver_num)
-                higer_vertex = max(from_ver_num, to_ver_num)
-                edge = vertex_labels[lower_vertex], vertex_labels[higer_vertex]
-                edges.add(edge)
-                labels[edge] = edge_value
-    return list(edges), labels
+def get_edges_and_labels(graph: AdjMatrix, labels_of_vertices: List[int]) -> Tuple[List[Edge], EdgeLabels]:
+    edges: List[Edge] = []
+    labels: EdgeLabels = {}
+
+    edge_indexes_to_labels = lambda i1, i2: (labels_of_vertices[i1],
+                                             labels_of_vertices[i2])
+
+    for color, row, col in enumerate_half_graph(graph):
+        if color:
+            edge_by_indexes = (row, col)
+            edge = edge_indexes_to_labels(*edge_by_indexes)
+            edges.append(edge)
+            labels[edge] = color
+    return edges, labels
 
 
 def output_results(colored_graph: AdjMatrix, vertex_labels: List[int]) -> None:
