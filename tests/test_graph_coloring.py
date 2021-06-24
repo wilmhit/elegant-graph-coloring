@@ -1,3 +1,5 @@
+import itertools
+
 import pytest
 
 from graph_coloring.custom_types import AdjMatrix
@@ -6,7 +8,7 @@ from .sample_graphs import SHACK_F_4, DI_3, STAR_S_6
 
 
 def assert_colored_elegantly(edges: AdjMatrix, vertices: list) -> None:
-    edges_colors = [color for row in edges for color in row if color != 0]
+    edges_colors = [color for color in itertools.chain(*edges) if color != 0]
     total_edges_colors_assigned = len(edges_colors) // 2
     vertices_set = set(vertices)
     edges_set = set(edges_colors)
