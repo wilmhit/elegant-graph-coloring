@@ -18,4 +18,3 @@ def enumerate_half_graph(graph: AdjMatrix) -> Generator[Tuple[int, int, int], No
 def print_graph_info(graph: AdjMatrix) -> None:
     print("Total edges: ", count_edges(graph))
     print("Total vertices: ", len(graph))
-    return
