@@ -1,3 +1,5 @@
+import itertools
+
 import pytest
 
 from graph_coloring.custom_types import AdjMatrix
@@ -5,8 +7,8 @@ from graph_coloring.coloring import elegantly_color
 from .sample_graphs import SHACK_F_4, DI_3, STAR_S_6
 
 
-def assert_colored_elegantly(edges: list, vertices: list) -> None:
-    edges_colors = [el for row in edges for el in row if el != 0]
+def assert_colored_elegantly(edges: AdjMatrix, vertices: list) -> None:
+    edges_colors = [color for color in itertools.chain(*edges) if color != 0]
     total_edges_colors_assigned = len(edges_colors) // 2
     vertices_set = set(vertices)
     edges_set = set(edges_colors)
@@ -60,8 +62,8 @@ def test_graph_colored_correctly(graph: AdjMatrix):
     "graph_with_more_vertices_than_edges",
     [
         [
-            [0, 1, 1, 0],
-            [1, 0, 0, 0],
+            [0, 0, 1, 0],
+            [0, 0, 0, 0],
             [1, 0, 0, 1],
             [0, 0, 1, 0],
         ],
