@@ -4,7 +4,7 @@ import networkx
 from matplotlib import pyplot
 
 from .custom_types import AdjMatrix
-from .graph_utils import enumerate_half_graph
+from .graph_utils import enumerate_half_graph, print_graph_info
 
 Edge = Tuple[int, int]
 EdgeLabels = Dict[Edge, int]
@@ -30,6 +30,8 @@ def output_results(colored_graph: AdjMatrix, vertex_labels: List[int]) -> None:
     graph.add_nodes_from(vertex_labels)
     graph.add_edges_from(edges)
     layout = networkx.spring_layout(graph)
+
+    print_graph_info(colored_graph)
 
     networkx.draw_networkx_nodes(graph, layout)
     networkx.draw_networkx_edges(graph, layout)
