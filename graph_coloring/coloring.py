@@ -1,9 +1,9 @@
-from typing import cast, Tuple, List
+from typing import List, Tuple, cast
 
 from minizinc import Instance, Model, Solver, Status
 
-from .custom_types import AdjMatrix
 from .config import MIZNIZIC_MODELS_DIR
+from .custom_types import AdjMatrix
 from .graph_utils import count_edges
 
 

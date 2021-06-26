@@ -1,4 +1,4 @@
-from typing import Dict, List, Set, Tuple
+from typing import Callable, Dict, List, Set, Tuple
 
 import networkx
 from matplotlib import pyplot
@@ -10,12 +10,16 @@ Edge = Tuple[int, int]
 EdgeLabels = Dict[Edge, int]
 
 
-def get_edges_and_labels(graph: AdjMatrix, labels_of_vertices: List[int]) -> Tuple[List[Edge], EdgeLabels]:
+def get_edges_and_labels(
+    graph: AdjMatrix, labels_of_vertices: List[int]
+) -> Tuple[List[Edge], EdgeLabels]:
     edges: List[Edge] = []
     labels: EdgeLabels = {}
 
-    edge_indexes_to_labels = lambda i1, i2: (labels_of_vertices[i1],
-                                             labels_of_vertices[i2])
+    edge_indexes_to_labels: Callable[[int, int], Tuple[int, int]] = lambda i1, i2: (
+        labels_of_vertices[i1],
+        labels_of_vertices[i2],
+    )
 
     for color, row, col in enumerate_half_graph(graph):
         if color:

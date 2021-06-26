@@ -1,4 +1,5 @@
 from typing import Optional
+
 from .custom_types import AdjMatrix
 from .graph_utils import count_edges
 
@@ -22,6 +23,7 @@ def is_square(graph: AdjMatrix) -> bool:
 
 def has_zeros_on_diagonal(graph: AdjMatrix) -> bool:
     return all(graph[x][x] == 0 for x in range(len(graph)))
+
 
 def edges_greater_equal_vertices(graph: AdjMatrix) -> bool:
     vertices = len(graph)

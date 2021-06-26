@@ -26,9 +26,7 @@ def assert_colored_elegantly(edges: list, vertices: list) -> None:
             if color := edges[i][j]:
                 # Edge colors should be distinct values obtained by the following formula
                 assert edges_colors.count(color) == 2  # Two because adjacency matrix
-                assert color == (vertices[i] + vertices[j]) % (
-                    total_edges_colors_assigned + 1
-                )
+                assert color == (vertices[i] + vertices[j]) % (total_edges_colors_assigned + 1)
 
 
 @pytest.mark.parametrize(
