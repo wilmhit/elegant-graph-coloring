@@ -16,15 +16,9 @@ def get_edges_and_labels(
     edges: List[Edge] = []
     labels: EdgeLabels = {}
 
-    edge_indexes_to_labels: Callable[[int, int], Tuple[int, int]] = lambda i1, i2: (
-        labels_of_vertices[i1],
-        labels_of_vertices[i2],
-    )
-
     for color, row, col in enumerate_half_graph(graph):
         if color:
-            edge_by_indexes = (row, col)
-            edge = edge_indexes_to_labels(*edge_by_indexes)
+            edge = (labels_of_vertices[row], labels_of_vertices[col])
             edges.append(edge)
             labels[edge] = color
     return edges, labels
