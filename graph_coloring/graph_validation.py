@@ -1,5 +1,7 @@
 from typing import Optional
+
 from .custom_types import AdjMatrix
+from .graph_utils import count_edges
 
 
 def get_error_if_invalid(graph: AdjMatrix) -> Optional[str]:
@@ -25,9 +27,5 @@ def has_zeros_on_diagonal(graph: AdjMatrix) -> bool:
 
 def edges_greater_equal_vertices(graph: AdjMatrix) -> bool:
     vertices = len(graph)
-    edges = 0
-    for row_num in range(len(graph)):
-        for col_num in range(row_num, len(graph)):
-            if graph[row_num][col_num] > 0:
-                edges += 1
-    return edges >= vertices
+    edges = count_edges(graph)
+    return edges >= vertices - 1

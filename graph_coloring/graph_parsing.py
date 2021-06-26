@@ -1,5 +1,6 @@
-from .custom_types import AdjMatrix
 from typing import List
+
+from .custom_types import AdjMatrix
 
 
 def graph_from_string(graph_str: str) -> AdjMatrix:

@@ -1,38 +1,40 @@
-from typing import List, Tuple, Dict
+from typing import Callable, Dict, List, Set, Tuple
 
 import networkx
 from matplotlib import pyplot
 
 from .custom_types import AdjMatrix
+from .graph_utils import enumerate_half_graph
 
 Edge = Tuple[int, int]
+EdgeLabels = Dict[Edge, int]
 
 
-def get_edges_and_labels(graph: AdjMatrix) -> Tuple[List[Edge], Dict[Edge, int]]:
+def get_edges_and_labels(
+    graph: AdjMatrix, labels_of_vertices: List[int]
+) -> Tuple[List[Edge], EdgeLabels]:
     edges: List[Edge] = []
-    labels: Dict[Edge, int] = {}
-    for row_num, row in enumerate(graph):
-        for column_num, element in enumerate(row):
-            if column_num < row_num:
-                continue
-            if element:
-                edge = (row_num, column_num)
-                edges.append(edge)
-                labels[edge] = element
+    labels: EdgeLabels = {}
 
+    for color, row, col in enumerate_half_graph(graph):
+        if color:
+            edge = (labels_of_vertices[row], labels_of_vertices[col])
+            edges.append(edge)
+            labels[edge] = color
     return edges, labels
 
 
-def output_results(colored_edges: AdjMatrix, colored_vertices: List[int]) -> None:
-    edges, labels = get_edges_and_labels(colored_edges)
+def output_results(colored_graph: AdjMatrix, vertex_labels: List[int]) -> None:
+    edges, edge_labels = get_edges_and_labels(colored_graph, vertex_labels)
     graph = networkx.Graph()
-    graph.add_nodes_from(colored_vertices)
+    graph.add_nodes_from(vertex_labels)
     graph.add_edges_from(edges)
     layout = networkx.spring_layout(graph)
 
     networkx.draw_networkx_nodes(graph, layout)
     networkx.draw_networkx_edges(graph, layout)
     networkx.draw_networkx_labels(graph, layout)
-    networkx.draw_networkx_edge_labels(graph, layout, edge_labels=labels)
+    networkx.draw_networkx_edge_labels(graph, layout, edge_labels=edge_labels)
+
     pyplot.tight_layout(pad=0)
     pyplot.show()
