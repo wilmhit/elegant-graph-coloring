@@ -13,6 +13,7 @@ Install python and then do:
 $ git clone https://github.com/wilmhit/elegant-graph-coloring.git
 $ cd elegant-graph-coloring
 $ python -m pip install pipenv
+$ python -m pipenv install
 $ chmod +x run.sh
 $ ./run.sh <Input graph file>
 ```

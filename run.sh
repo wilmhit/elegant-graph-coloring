@@ -1,2 +1,2 @@
 #!/bin/sh
-pipenv run python -m graph_coloring $1
+python -m pipenv run python -m graph_coloring $1
